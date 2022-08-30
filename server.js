@@ -4,20 +4,21 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+require('dotenv').config()
 const app = express ();
 const db = mongoose.connection;
-require('dotenv').config()
+
 //___________________
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT
 
 //___________________
 //Database
 //___________________
 // How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI
 
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
@@ -48,8 +49,8 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.json({})
+app.get('/test' , (req, res) => {
+  res.send('Hello World!')
 });
 
 //___________________
